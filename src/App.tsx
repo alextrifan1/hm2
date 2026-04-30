@@ -8,14 +8,14 @@ function App() {
     const [result, setResult] = useState("");
     const options = ['rock', 'paper', 'scissors'];
 
-    function handleChoice(choice: string): void {
+    function handleChoice(humanChoice: string): void {
         const computer = options[Math.floor(Math.random() * options.length)];
-        if (choice === computer) {
+        if (humanChoice === computer) {
             setResult('You and the machine think alike… unsettling');
         } else if (
-            (choice === 'rock' && computer === 'scissors') ||
-            (choice === 'paper' && computer === 'rock') ||
-            (choice === 'scissors' && computer === 'paper')
+            (humanChoice === 'rock' && computer === 'scissors') ||
+            (humanChoice === 'paper' && computer === 'rock') ||
+            (humanChoice === 'scissors' && computer === 'paper')
         ) {
             setResult('The indomitable human spirit wins against the cold machine')
         } else {
@@ -30,7 +30,7 @@ function App() {
           <button onClick={() => handleChoice("paper")}><FaHandPaper />Paper</button>
           <button onClick={() => handleChoice("scissors")}><FaHandScissors />Scissors</button>
         </div>
-        <p>Result: {result}</p>
+        <p className="result">Result: {result}</p>
     </div>
   );
 }
