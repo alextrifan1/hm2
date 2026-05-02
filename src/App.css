@@ -1,29 +1,94 @@
-.container {
+@import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     min-height: 100vh;
-    min-width: 100vw;
-    gap: 12px;
-    z-index: 1;
+    width: 100%;
+    background: black;
+
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    width: 90%;
+    max-width: 550px;
+    min-height: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    margin: 20px auto;
 }
 
 .buttons {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
     justify-content: center;
-    align-items: center;
-    gap: 3px;
+    margin-bottom: 30px;
 }
 
 button {
-    width: 100px;
-    height: 100px;
-    padding: 10px;
+    background: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    color: #4ADE80FF;
+    transform: translateY(-2px) scale(1.05);
+}
+
+button svg {
+    font-size: 1.2rem;
+}
+
+.output {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.computer-choice {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 8px;
 }
 
 .result {
-    color: white;
-    font-weight: bold;
+    font-family: "Modak", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 6rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
 }
+
+.result:hover {
+    cursor: pointer;
+    transform: translateY(-3px) scale(1.5);
+}
+
+.win { color: #4ADE80FF }
+.loss { color: #f87171 }
+.tie { color: #fbbf24 }

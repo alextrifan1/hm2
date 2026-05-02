@@ -5,6 +5,7 @@ import { FaHandPaper } from "react-icons/fa";
 import { FaHandScissors } from "react-icons/fa";
 import { FaHandSpock } from "react-icons/fa";
 import { FaHandLizard } from "react-icons/fa";
+import clsx from "clsx";
 
 function App() {
     const [result, setResult] = useState("");
@@ -27,10 +28,10 @@ function App() {
             setResult('tie');
             setComputerChoice(computer);
         } else if (winOptions[human].includes(computer)) {
-            setResult('human win');
+            setResult('win');
             setComputerChoice(computer);
         } else {
-            setResult('computer win')
+            setResult('loss')
             setComputerChoice(computer);
         }
     }
@@ -47,8 +48,15 @@ function App() {
 
         {computerChoice && (
             <div className="output">
-                <p className="result">The computer chose: <strong>{computerChoice}</strong></p>
-                <p className="result">Result: <strong>{result}</strong></p>
+                <p className="computer-choice">The computer choose: {computerChoice}</p>
+                <h2 className={clsx('result', {
+                    'win': result === 'win',
+                    'loss': result === 'loss',
+                    'tie': result === 'tie'
+                })}>
+                    {result}
+                </h2>
+
             </div>
         )}
     </div>
